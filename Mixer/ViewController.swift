@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         
         self.trackOneView.layer.cornerRadius = 10
         self.trackTwoView.layer.cornerRadius = 10
-        //
+        //test
         
         self.trackOneTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(trackOneTime), userInfo: nil, repeats: true)
         self.trackTwoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(trackTwoTime), userInfo: nil, repeats: true)
