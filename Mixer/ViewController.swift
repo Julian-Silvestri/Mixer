@@ -203,7 +203,7 @@ class ViewController: UIViewController {
         guard let channelData = buffer.floatChannelData?[0] else {return}
         let frames = buffer.frameLength
         
-        //rms
+        //rms jj
         let rmsValue = SignalProcessing.rms(data: channelData, frameLength: UInt(frames))
         let interpolatedResults = SignalProcessing.interpolate(current: rmsValue, previous: prevRMSValue)
         prevRMSValue = rmsValue
