@@ -83,6 +83,7 @@
 				DCC15FF624967A0E005DBE98 /* AppDelegate.swift */,
 				084BA380251BE6EC00EA5A0D /* AudioVisualizer.swift */,
 				DCC15FF824967A0E005DBE98 /* SceneDelegate.swift */,
+				084BA387251BEA0F00EA5A0D /* CircleShader.metal */,
 				084BA37E251BE54200EA5A0D /* SignalProcessing.swift */,
 				DCC15FFA24967A0E005DBE98 /* ViewController.swift */,
 				DCC1600A24968E76005DBE98 /* MusicPlayers.swift */,
@@ -90,7 +91,6 @@
 				DCC15FFF24967A0F005DBE98 /* Assets.xcassets */,
 				DCC1600124967A0F005DBE98 /* LaunchScreen.storyboard */,
 				DCC1600424967A0F005DBE98 /* Info.plist */,
-				084BA387251BEA0F00EA5A0D /* CircleShader.metal */,
 				084BA389251BEBEB00EA5A0D /* runnyBeat.mp3 */,
 				084BA38B251BED1D00EA5A0D /* Metal.plist */,
 			);
