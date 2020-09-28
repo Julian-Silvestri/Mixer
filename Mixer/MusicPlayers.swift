@@ -97,6 +97,28 @@ class MusicPlayerOne {
     func prepareToPlay(){
         musicPlayerOne?.prepareToPlay()
     }
+    func changeTrack(track: String){
+        stopTrack()
+        //let data = NSDataAsset(name: trackOne)!
+//
+        let url = NSURL(fileURLWithPath: trackOne)
+//        guard let url = Bundle.main.url(forResource: trackOne, withExtension: "mp3") else {
+//            print("mp3 not found")
+//            return
+//        }
+        do {
+            //try musicPlayerOne = AVAudioPlayer(data: data.data)
+//            try musicPlayerOne = AVAudioPlayer(contentsOf: url)
+            try musicPlayerOne = AVAudioPlayer(contentsOf: URL(string: track)!, fileTypeHint: "mp3")
+            musicPlayerOne!.prepareToPlay()
+            musicPlayerOne?.play()
+            
+        } catch let err{
+            print("ERROR Track One")
+            print(err.localizedDescription)
+        }
+    }
+    
     
     
     

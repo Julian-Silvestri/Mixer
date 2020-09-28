@@ -8,9 +8,7 @@
 
 import UIKit
 import Foundation
-import Accelerate
 import AVFoundation
-import MetalKit
 
 class ViewController: UIViewController {
     
@@ -45,25 +43,9 @@ class ViewController: UIViewController {
     var trackOneTime_Double = Double()
     var trackTwoTime_Double = Double()
     
-    var engine : AVAudioEngine!
-    var audioVisualizer : AudioVisualizer!
-    let fftSetup = vDSP_DFT_zop_CreateSetup(nil, 1024, vDSP_DFT_Direction.FORWARD)
-    var prevRMSValue : Float = 0.3
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        audioVisualizer = AudioVisualizer()
-        //audioVisualizer.frame = CGRect(x:0,y:0,width:200, height: 100)
-        view.addSubview(audioVisualizer)
-        
-        //constraining to window
-        audioVisualizer.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        audioVisualizer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        audioVisualizer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        audioVisualizer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        audioVisualizer.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        setupAudio()
+    
         
         self.trackOneView.layer.cornerRadius = 10
         self.trackTwoView.layer.cornerRadius = 10
@@ -138,85 +120,6 @@ class ViewController: UIViewController {
             
         }
         
-    }
-    
-    func setupAudio(){
-        /* Setup & Start Engine */
-        
-        //initialize it
-        engine = AVAudioEngine()
-        
-        //initialzing the mainMixerNode singleton which will connect to the default output node
-        _ = engine.mainMixerNode
-        
-        //prepare and start
-        engine.prepare()
-        do {
-            try engine.start()
-        } catch {
-            print(error)
-        }
-        
-        /* Add a player node (our music!) to the engine */
-        
-        //first we need the resource url for our file
-        //let trackOnePath = NSDataAsset(name: "runnyBeat")!
-        guard let url = Bundle.main.url(forResource: "runnyBeat", withExtension: "mp3") else {
-            print("mp3 not found")
-            return
-        }
-        
-        //now we need to create our player node
-        let player = AVAudioPlayerNode()
-        
-        do {
-            //player nodes have a few ways to play-back music, the easiest way is from an AVAudioFile
-            let audioFile = try AVAudioFile(forReading: url)
-            
-            //audio always has a format, lets keep track of what the format is as an AVAudioFormat
-            let format = audioFile.processingFormat
-            print(format)
-            
-            //we now need to connect add the node to our engine. This part is a little weird but we first need
-            //to attach it to the engine itself before connecting it to the mainMixerNode. Recall that the
-            //mainMixerNode connects to the default outputNode, so now we'll have a complete playback path from
-            //our file to the outputNode!
-            engine.attach(player)
-            engine.connect(player, to: engine.mainMixerNode, format: format)
-            
-            //let's play the file!
-            //note: player must be attached first before scheduling a file to play
-            player.scheduleFile(audioFile, at: nil, completionHandler: nil)
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        //tap it to get the buffer data at playtime
-        engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { (buffer, time) in
-               self.processAudioData(buffer: buffer)
-           }
-        //start playing the music!
-        player.play()
-    }
-    
-
-    func processAudioData(buffer: AVAudioPCMBuffer){
-        guard let channelData = buffer.floatChannelData?[0] else {return}
-        let frames = buffer.frameLength
-        
-        //rms jj
-        let rmsValue = SignalProcessing.rms(data: channelData, frameLength: UInt(frames))
-        let interpolatedResults = SignalProcessing.interpolate(current: rmsValue, previous: prevRMSValue)
-        prevRMSValue = rmsValue
-        
-        //pass values to the audiovisualizer for the rendering
-        for rms in interpolatedResults {
-            audioVisualizer.loudnessMagnitude = rms
-        }
-        
-        //fft
-        let fftMagnitudes =  SignalProcessing.fft(data: channelData, setup: fftSetup!)
-        audioVisualizer.frequencyVertices = fftMagnitudes
     }
     
     @objc func trackOneTime() {
@@ -549,14 +452,33 @@ extension ViewController: UIDocumentPickerDelegate {
 //            return
 //        }
         
-        let selectedFileURL = URL(fileURLWithPath: urls[0].absoluteString)
+//        let fileManager = FileManager.default.
+//
+//        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+//
+//        if let documentDirectoryURL: NSURL = urls.first as? NSURL {
+//            let playYoda = documentDirectoryURL.appendingPathComponent("do_or_do_not.wav")
+//
+//            print("playYoda is \(playYoda)")
+//        }
+//
+        let selectedFileURL = URL(fileURLWithPath: "\(urls[0].absoluteString)")
+        print("\(selectedFileURL)")
         
         let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
         
         if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
-            self.trackOneTitle.text = selectedFileURL.absoluteString
-            self.audioPlayerOne?.trackOne = selectedFileURL.absoluteString
+            self.trackOneTitle.text = "\(sandboxFileURL.lastPathComponent)"
+            self.audioPlayerOne?.trackOne = "\(sandboxFileURL.absoluteURL)"
+           // saveFile(name: "\(selectedFileURL.absoluteURL)")
+            self.audioPlayerOne?.changeTrack(track: "\(sandboxFileURL)")
+           // self.audioPlayerOne?.changeTrack(track: "\(selectedFileURL.standardizedFileURL)")
+//            do {
+//                try FileManager.default.copyItem(at: sandboxFileURL.standardizedFileURL, to: sandboxFileURL)
+//            }  catch {
+//                print("error)")
+//            }
             print("Already exists! Do nothing")
         } else {
             do {
@@ -570,6 +492,28 @@ extension ViewController: UIDocumentPickerDelegate {
             
         }
     }
+    
+    func saveFile(name: String) {
+//        let fileName = "Test"
+//        let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+//        let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+//        print("File PAth: \(fileURL.path)")
+//
+//
+        let fileManager = FileManager.default
+        do {
+            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
+            let fileURL = documentDirectory.appendingPathComponent(name)
+            //let image = #imageLiteral(resourceName: "Notifications")
+            //if let imageData = image.jpegData(compressionQuality: 0.5) {
+          //      try imageData.write(to: fileURL)
+              //  print("true")//
+            //}
+        } catch {
+            print(error)
+        }
+    }
+
 }
 
 

@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		084BA37F251BE54200EA5A0D /* SignalProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084BA37E251BE54200EA5A0D /* SignalProcessing.swift */; };
-		084BA381251BE6EC00EA5A0D /* AudioVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084BA380251BE6EC00EA5A0D /* AudioVisualizer.swift */; };
-		084BA386251BE9DB00EA5A0D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084BA385251BE9DB00EA5A0D /* Metal.framework */; };
-		084BA388251BEA0F00EA5A0D /* CircleShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 084BA387251BEA0F00EA5A0D /* CircleShader.metal */; };
 		084BA38A251BEBEB00EA5A0D /* runnyBeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 084BA389251BEBEB00EA5A0D /* runnyBeat.mp3 */; };
-		084BA38C251BED1D00EA5A0D /* Metal.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084BA38B251BED1D00EA5A0D /* Metal.plist */; };
 		DCC15FF724967A0E005DBE98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC15FF624967A0E005DBE98 /* AppDelegate.swift */; };
 		DCC15FF924967A0E005DBE98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC15FF824967A0E005DBE98 /* SceneDelegate.swift */; };
 		DCC15FFB24967A0E005DBE98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC15FFA24967A0E005DBE98 /* ViewController.swift */; };
@@ -23,12 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		084BA37E251BE54200EA5A0D /* SignalProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalProcessing.swift; sourceTree = "<group>"; };
-		084BA380251BE6EC00EA5A0D /* AudioVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVisualizer.swift; sourceTree = "<group>"; };
 		084BA385251BE9DB00EA5A0D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
-		084BA387251BEA0F00EA5A0D /* CircleShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = CircleShader.metal; sourceTree = "<group>"; };
 		084BA389251BEBEB00EA5A0D /* runnyBeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = runnyBeat.mp3; path = Assets.xcassets/runnyBeat.dataset/runnyBeat.mp3; sourceTree = "<group>"; };
-		084BA38B251BED1D00EA5A0D /* Metal.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Metal.plist; sourceTree = "<group>"; };
 		DCC15FF324967A0E005DBE98 /* Mixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC15FF624967A0E005DBE98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCC15FF824967A0E005DBE98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				084BA386251BE9DB00EA5A0D /* Metal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC15FF624967A0E005DBE98 /* AppDelegate.swift */,
-				084BA380251BE6EC00EA5A0D /* AudioVisualizer.swift */,
 				DCC15FF824967A0E005DBE98 /* SceneDelegate.swift */,
-				084BA387251BEA0F00EA5A0D /* CircleShader.metal */,
-				084BA37E251BE54200EA5A0D /* SignalProcessing.swift */,
 				DCC15FFA24967A0E005DBE98 /* ViewController.swift */,
 				DCC1600A24968E76005DBE98 /* MusicPlayers.swift */,
 				DCC15FFC24967A0E005DBE98 /* Main.storyboard */,
@@ -92,7 +79,6 @@
 				DCC1600124967A0F005DBE98 /* LaunchScreen.storyboard */,
 				DCC1600424967A0F005DBE98 /* Info.plist */,
 				084BA389251BEBEB00EA5A0D /* runnyBeat.mp3 */,
-				084BA38B251BED1D00EA5A0D /* Metal.plist */,
 			);
 			path = Mixer;
 			sourceTree = "<group>";
@@ -157,7 +143,6 @@
 			files = (
 				DCC1600324967A0F005DBE98 /* LaunchScreen.storyboard in Resources */,
 				DCC1600024967A0F005DBE98 /* Assets.xcassets in Resources */,
-				084BA38C251BED1D00EA5A0D /* Metal.plist in Resources */,
 				DCC15FFE24967A0E005DBE98 /* Main.storyboard in Resources */,
 				084BA38A251BEBEB00EA5A0D /* runnyBeat.mp3 in Resources */,
 			);
@@ -170,12 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				084BA388251BEA0F00EA5A0D /* CircleShader.metal in Sources */,
 				DCC15FFB24967A0E005DBE98 /* ViewController.swift in Sources */,
 				DCC15FF724967A0E005DBE98 /* AppDelegate.swift in Sources */,
-				084BA37F251BE54200EA5A0D /* SignalProcessing.swift in Sources */,
 				DCC1600B24968E76005DBE98 /* MusicPlayers.swift in Sources */,
-				084BA381251BE6EC00EA5A0D /* AudioVisualizer.swift in Sources */,
 				DCC15FF924967A0E005DBE98 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
