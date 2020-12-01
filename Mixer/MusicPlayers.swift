@@ -14,13 +14,11 @@ import AVFoundation
 class MusicPlayerOne {
     
     var musicPlayerOne: AVAudioPlayer? = nil
-//    var trackOne = "runnyBeat"
     var trackOne = ""
     var trackOnePaused: Bool?
      
     init(){
         let trackOnePath = NSDataAsset(name: trackOne)
-        //let audioUrl = URL(fileURLWithPath: "\(trackOnePath)")
         do {
             try musicPlayerOne = AVAudioPlayer(data: trackOnePath?.data ?? Data.init())
             musicPlayerOne!.prepareToPlay()
@@ -95,7 +93,6 @@ class MusicPlayerOne {
         musicPlayerOne?.volume = volume
     }
     func curentVolume()->Float{
-        //print("CURRENT VOLUME OF TRACK 2 -> \(musicPlayerOne?.volume)")
         return musicPlayerOne!.volume
     }
     func prepareToPlay(){
@@ -103,20 +100,9 @@ class MusicPlayerOne {
     }
     func changeTrack(track: String){
         stopTrack()
-        //let data = NSDataAsset(name: trackOne)!
-//
-        //let url = NSURL(fileURLWithPath: trackOne)
-//        guard let url = Bundle.main.url(forResource: trackOne, withExtension: "mp3") else {
-//            print("mp3 not found")
-//            return
-//        }
         do {
-            //try musicPlayerOne = AVAudioPlayer(data: data.data)
-//            try musicPlayerOne = AVAudioPlayer(contentsOf: url)
             try musicPlayerOne = AVAudioPlayer(contentsOf: URL(string: track)!, fileTypeHint: "mp3")
             musicPlayerOne!.prepareToPlay()
-            //musicPlayerOne?.play()
-            
         } catch let err{
             print("ERROR Track One")
             print(err.localizedDescription)
@@ -132,14 +118,12 @@ class MusicPlayerOne {
 class MusicPlayerTwo {
     
     var musicPlayerTwo: AVAudioPlayer? = nil
-    //var trackTwo = "runnyBeatBass"
     var trackTwo = ""
     var trackTwoPaused: Bool?
     
     init() {
         
         let trackTwoPath = NSDataAsset(name: trackTwo)
-        //let audioUrl = URL(fileURLWithPath: "\(trackTwoPath)")
         do {
             try musicPlayerTwo = AVAudioPlayer(data: trackTwoPath?.data ?? Data.init())
             musicPlayerTwo!.prepareToPlay()
@@ -205,7 +189,6 @@ class MusicPlayerTwo {
         musicPlayerTwo?.volume = volume
     }
     func curentVolume()->Float{
-        //print("CURRENT VOLUME OF TRACK 2 -> \(musicPlayerTwo?.volume)")
         return musicPlayerTwo!.volume
     }
     func prepareToPlay(){
@@ -218,8 +201,6 @@ class MusicPlayerTwo {
 
             try musicPlayerTwo = AVAudioPlayer(contentsOf: URL(string: track)!, fileTypeHint: "mp3")
             musicPlayerTwo!.prepareToPlay()
-            //musicPlayerTwo?.play()
-            
         } catch let err{
             print("ERROR Track One")
             print(err.localizedDescription)

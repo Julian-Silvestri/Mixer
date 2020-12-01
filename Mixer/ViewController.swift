@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         
         //Corner Radius - No Tracks
         self.addTrackOne_noTrack.layer.cornerRadius = 5
-        self.addTrackOne_noTrack.layer.cornerRadius = 5
+        self.addTrackTwo_noTrack.layer.cornerRadius = 5
         
         //corner radius - palyer 1
         self.trackOnePlayBtn.layer.cornerRadius = 5
@@ -180,7 +180,6 @@ class ViewController: UIViewController {
             //player 2
             self.trackTwoPlayBtn.setTitle("Play", for: .normal)
             self.trackTwoPauseBtn.setTitle("Pause", for: .normal)
-            //self.trackOneStopBtn.setTitle("Stop", for: .normal)
             if traitCollection.userInterfaceStyle == .light {
                 print("Light mode")
                 self.trackTwoView.backgroundColor = UIColor.black
@@ -221,7 +220,6 @@ class ViewController: UIViewController {
             //player 2
             self.trackTwoPlayBtn.setTitle("Play", for: .normal)
             self.trackTwoPauseBtn.setTitle("Pause", for: .normal)
-            //self.trackOneStopBtn.setTitle("Stop", for: .normal)
             if traitCollection.userInterfaceStyle == .light {
                 print("Light mode")
                 self.trackTwoView.backgroundColor = UIColor.black
@@ -274,7 +272,12 @@ class ViewController: UIViewController {
     
     //MARK: Restart Track One
     @IBAction func restartTrackOne(_ sender: Any) {
-        self.audioPlayerOne?.restartTrack()
+        if self.audioPlayerOne?.isCurrentlyPlaying() == true {
+            self.audioPlayerOne?.restartTrack()
+        } else if audioPlayerOne?.trackOnePaused == true {
+            self.audioPlayerOne?.playTrack()
+        }
+        
     }
     
     //MARK: Stop Track One
@@ -531,9 +534,6 @@ extension ViewController: UIDocumentPickerDelegate {
                     self.addTrackOne_noTrack.isEnabled = false
                     UIView.animate(withDuration: 0.5, animations: {
                         self.addTrackOne_noTrack.backgroundColor = UIColor.green
-                        
-                        //self.addTrackOne_noTrack.alpha = 0
-                        //self.noTrackOneView.alpha = 0
                     },completion: {_ in
                         self.showMainMixer()
                         self.addTrackOne_noTrack.setTitle("Track One Added", for: .normal)
@@ -561,7 +561,6 @@ extension ViewController: UIDocumentPickerDelegate {
             if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
                 self.trackTwoTitle.text = "\(sandboxFileURL.lastPathComponent)"
                 self.audioPlayerTwo?.trackTwo = "\(sandboxFileURL.absoluteURL)"
-               // saveFile(name: "\(selectedFileURL.absoluteURL)")
                 self.audioPlayerTwo?.changeTrack(track: "\(sandboxFileURL)")
                 print("Already exists! Do nothing")
                 

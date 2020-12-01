@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		084BA38A251BEBEB00EA5A0D /* runnyBeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 084BA389251BEBEB00EA5A0D /* runnyBeat.mp3 */; };
 		DCC15FF724967A0E005DBE98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC15FF624967A0E005DBE98 /* AppDelegate.swift */; };
 		DCC15FF924967A0E005DBE98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC15FF824967A0E005DBE98 /* SceneDelegate.swift */; };
 		DCC15FFB24967A0E005DBE98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC15FFA24967A0E005DBE98 /* ViewController.swift */; };
@@ -19,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		084BA385251BE9DB00EA5A0D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
-		084BA389251BEBEB00EA5A0D /* runnyBeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = runnyBeat.mp3; path = Assets.xcassets/runnyBeat.dataset/runnyBeat.mp3; sourceTree = "<group>"; };
 		DCC15FF324967A0E005DBE98 /* Mixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC15FF624967A0E005DBE98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCC15FF824967A0E005DBE98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 				DCC15FFF24967A0F005DBE98 /* Assets.xcassets */,
 				DCC1600124967A0F005DBE98 /* LaunchScreen.storyboard */,
 				DCC1600424967A0F005DBE98 /* Info.plist */,
-				084BA389251BEBEB00EA5A0D /* runnyBeat.mp3 */,
 			);
 			path = Mixer;
 			sourceTree = "<group>";
@@ -144,7 +141,6 @@
 				DCC1600324967A0F005DBE98 /* LaunchScreen.storyboard in Resources */,
 				DCC1600024967A0F005DBE98 /* Assets.xcassets in Resources */,
 				DCC15FFE24967A0E005DBE98 /* Main.storyboard in Resources */,
-				084BA38A251BEBEB00EA5A0D /* runnyBeat.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +306,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jsilvestri-.Mixer";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsilvestri-.MixerLite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,7 +325,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jsilvestri-.Mixer";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsilvestri-.MixerLite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
