@@ -12,6 +12,14 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var trackTwoDurationTime: UILabel!
+    @IBOutlet weak var durationLabel_two: UILabel!
+    @IBOutlet weak var trackOneDurationTIme: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var noTrackTwoView: UIView!
+    @IBOutlet weak var noTrackOneView: UIView!
+    @IBOutlet weak var noTracksStack: UIStackView!
+    @IBOutlet weak var mainStack: UIStackView!
     @IBOutlet weak var titleOfApp: UILabel!
     //MARK: Track One View
     @IBOutlet weak var trackOneView: UIView!
@@ -24,6 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var trackOneTitle: UILabel!
     @IBOutlet weak var trackOneVolume: UILabel!
     @IBOutlet weak var trackOneVolumeControl: UISlider!
+    @IBOutlet weak var trackOneVolumeLabel: UILabel!
     //MARK: Track Two View
     @IBOutlet weak var trackTwoView: UIView!
     @IBOutlet weak var trackTwoRestartBtn: UIButton!
@@ -35,13 +44,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var trackTwoPlayBtn: UIButton!
     @IBOutlet weak var trackTwoPauseBtn: UIButton!
     @IBOutlet weak var trackTwoStopBtn: UIButton!
-   
+    //
+    @IBOutlet weak var addTrackOne_noTrack: UIButton!
+    @IBOutlet weak var addTrackTwo_noTrack: UIButton!
+    
     var audioPlayerOne: MusicPlayerOne?
     var audioPlayerTwo: MusicPlayerTwo?
     var trackOneTimer = Timer()
     var trackTwoTimer = Timer()
     var trackOneTime_Double = Double()
     var trackTwoTime_Double = Double()
+    var trackOneSet: Bool? = false
+    var trackTwoSet: Bool? = false
+    var changingTrackOne: Bool? = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +77,10 @@ class ViewController: UIViewController {
         self.trackOneTitle.text = self.audioPlayerOne?.trackOne
         self.trackTwoTitle.text = self.audioPlayerTwo?.trackTwo
         
+        //Corner Radius - No Tracks
+        self.addTrackOne_noTrack.layer.cornerRadius = 5
+        self.addTrackOne_noTrack.layer.cornerRadius = 5
+        
         //corner radius - palyer 1
         self.trackOnePlayBtn.layer.cornerRadius = 5
         self.trackOneStopBtn.layer.cornerRadius = 5
@@ -79,6 +98,7 @@ class ViewController: UIViewController {
         self.trackTwoVolume.text = "\(self.trackTwoVolumeControl.value.rounded())"
         
         self.view.backgroundColor = UIColor.black
+       
         
         if traitCollection.userInterfaceStyle == .light {
             print("Light mode")
@@ -91,6 +111,8 @@ class ViewController: UIViewController {
             self.trackOneChangeTrackBtn.backgroundColor = UIColor.systemTeal
             self.trackOneTitle.textColor = UIColor.white
             self.trackOneVolume.textColor = UIColor.white
+            self.trackOneVolumeLabel.textColor = UIColor.white
+            self.durationLabel.textColor = UIColor.white
             //player 2
             self.trackTwoView.backgroundColor = UIColor.black
             self.trackTwoPlayBtn.backgroundColor = UIColor.systemGreen
@@ -100,24 +122,35 @@ class ViewController: UIViewController {
             self.trackTwoChangeTrackBtn.backgroundColor = UIColor.systemTeal
             self.trackTwoTitle.textColor = UIColor.white
             self.trackTwoVolume.textColor = UIColor.white
+            self.durationLabel_two.textColor = UIColor.white
+            //other
+            self.noTracksStack.backgroundColor = UIColor.black
             
         } else {
             print("Dark mode")
             //player 1
-            self.trackOneView.backgroundColor = UIColor.clear
+            self.trackOneView.backgroundColor = UIColor.black
             self.trackOnePlayBtn.backgroundColor = UIColor.systemGreen
             self.trackOneStopBtn.backgroundColor = UIColor.systemRed
             self.trackOnePauseBtn.backgroundColor = UIColor.gray
             self.trackOneRestartTrackBtn.backgroundColor = UIColor.systemOrange
             self.trackOneChangeTrackBtn.backgroundColor = UIColor.systemTeal
+            self.trackOneTitle.textColor = UIColor.white
+            self.trackOneVolume.textColor = UIColor.white
+            self.trackOneVolumeLabel.textColor = UIColor.white
+            self.durationLabel.textColor = UIColor.white
             //player 2
-            self.trackTwoView.backgroundColor = UIColor.clear
+            self.trackTwoView.backgroundColor = UIColor.black
             self.trackTwoPlayBtn.backgroundColor = UIColor.systemGreen
             self.trackTwoPauseBtn.backgroundColor = UIColor.gray
             self.trackTwoStopBtn.backgroundColor = UIColor.systemRed
             self.trackTwoRestartBtn.backgroundColor = UIColor.systemOrange
             self.trackTwoChangeTrackBtn.backgroundColor = UIColor.systemTeal
-            
+            self.trackTwoTitle.textColor = UIColor.white
+            self.trackTwoVolume.textColor = UIColor.white
+            self.durationLabel_two.textColor = UIColor.white
+            //other
+            self.noTracksStack.backgroundColor = UIColor.black
         }
         
     }
@@ -405,7 +438,9 @@ class ViewController: UIViewController {
         } else {
             return
         }
+        
     }
+    
     @IBAction func restartTrackTwo(_ sender: Any) {
         self.audioPlayerTwo?.restartTrack()
     }
@@ -422,98 +457,162 @@ class ViewController: UIViewController {
         self.trackTwoVolume.text = "\(self.trackTwoVolumeControl.value.rounded())"
     }
     
+    //MARK: Change Track One
     @IBAction func changeTrackOne(_ sender: Any) {
-       
+        self.changingTrackOne = true
         let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.audio"], in: .import)
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
         present(documentPicker, animated: true, completion: nil)
     }
     
+    //MARK: Add Track One
+    @IBAction func addTrackOne(_ sender: Any) {
+        self.changingTrackOne = true
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.audio"], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
+        
+    }
     
-//    func colourScheme_WhiteBlack(){
-//        if traitCollection.userInterfaceStyle == .light {
-//            print("Light mode")
-//            self.trackTwoView.backgroundColor = UIColor.white
-//            self.trackOneView.backgroundColor = UIColor.systemGreen
-//        } else {
-//            print("Dark mode")
-//            self.trackOneView.backgroundColor = UIColor.black
-//            self.trackOneView.backgroundColor = UIColor.systemGreen
-//        }
-//    }
+    @IBAction func changeTrackTwo(_ sender: Any) {
+        self.changingTrackOne = false
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.audio"], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
+    }
+    //MARK: Add Track Two
+    @IBAction func addTrackTwo(_ sender: Any) {
+        self.changingTrackOne = false
+
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.audio"], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion:nil)
+    }
+    
+    
+    func showMainMixer(){
+        if self.trackTwoSet == true && self.trackOneSet == true {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.noTracksStack.alpha = 0
+            }, completion: { _ in
+                self.noTracksStack.isHidden = true
+            })
+        } else {
+            return
+        }
+    }
 
 }
 extension ViewController: UIDocumentPickerDelegate {
     
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         
-//        guard let selectedFileURL = urls.first else {
-//            return
-//        }
-        
-//        let fileManager = FileManager.default.
-//
-//        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-//
-//        if let documentDirectoryURL: NSURL = urls.first as? NSURL {
-//            let playYoda = documentDirectoryURL.appendingPathComponent("do_or_do_not.wav")
-//
-//            print("playYoda is \(playYoda)")
-//        }
-//
-        let selectedFileURL = URL(fileURLWithPath: "\(urls[0].absoluteString)")
-        print("\(selectedFileURL)")
-        
-        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
-        
-        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
-            self.trackOneTitle.text = "\(sandboxFileURL.lastPathComponent)"
-            self.audioPlayerOne?.trackOne = "\(sandboxFileURL.absoluteURL)"
-           // saveFile(name: "\(selectedFileURL.absoluteURL)")
-            self.audioPlayerOne?.changeTrack(track: "\(sandboxFileURL)")
-           // self.audioPlayerOne?.changeTrack(track: "\(selectedFileURL.standardizedFileURL)")
-//            do {
-//                try FileManager.default.copyItem(at: sandboxFileURL.standardizedFileURL, to: sandboxFileURL)
-//            }  catch {
-//                print("error)")
-//            }
-            print("Already exists! Do nothing")
-        } else {
-            do {
-                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
-                
-                print("Copied file!")
-            }
-            catch {
-                print("Error: \(error)")
-            }
+        if changingTrackOne == true {
+            let selectedFileURL = URL(fileURLWithPath: "\(urls[0].absoluteString)")
+            print("\(selectedFileURL)")
             
+            let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+            
+            if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+                self.trackOneTitle.text = "\(sandboxFileURL.lastPathComponent)"
+                self.audioPlayerOne?.trackOne = "\(sandboxFileURL.absoluteURL)"
+                self.audioPlayerOne?.changeTrack(track: "\(sandboxFileURL)")
+                print("Already exists! Do nothing")
+                if self.audioPlayerOne?.trackOne == "" {
+                    return
+                } else {
+                    print("track one is set")
+                    self.trackOneSet = true
+                    self.addTrackOne_noTrack.isEnabled = false
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.addTrackOne_noTrack.backgroundColor = UIColor.green
+                        
+                        //self.addTrackOne_noTrack.alpha = 0
+                        //self.noTrackOneView.alpha = 0
+                    },completion: {_ in
+                        self.showMainMixer()
+                        self.addTrackOne_noTrack.setTitle("Track One Added", for: .normal)
+                    })
+                }
+            } else {
+                do {
+                    try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+                    
+                    print("Copied file!")
+                }
+                catch {
+                    print("Error: \(error)")
+                }
+                
+            }
+        } else {
+            //changing track two
+            let selectedFileURL = URL(fileURLWithPath: "\(urls[0].absoluteString)")
+            print("\(selectedFileURL)")
+            
+            let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+            
+            if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+                self.trackTwoTitle.text = "\(sandboxFileURL.lastPathComponent)"
+                self.audioPlayerTwo?.trackTwo = "\(sandboxFileURL.absoluteURL)"
+               // saveFile(name: "\(selectedFileURL.absoluteURL)")
+                self.audioPlayerTwo?.changeTrack(track: "\(sandboxFileURL)")
+                print("Already exists! Do nothing")
+                
+                if self.audioPlayerTwo?.trackTwo == ""{
+                    return
+                } else {
+                    self.trackTwoSet = true
+                    print("Track Two Is set")
+  
+                    self.addTrackTwo_noTrack.isEnabled = false
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.addTrackTwo_noTrack.backgroundColor = UIColor.green
+                    }, completion: {_ in
+                        self.showMainMixer()
+                        self.addTrackTwo_noTrack.setTitle("Track Two Added!", for: .normal)
+
+                    })
+                }
+            } else {
+            
+                do {
+                    try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+                    
+                    print("Copied file!")
+                }
+                catch {
+                    print("Error: \(error)")
+                }
+                
+            }
         }
+
+
     }
     
     func saveFile(name: String) {
-//        let fileName = "Test"
-//        let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-//        let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
-//        print("File PAth: \(fileURL.path)")
-//
-//
-        let fileManager = FileManager.default
-        do {
-            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
-            let fileURL = documentDirectory.appendingPathComponent(name)
-            //let image = #imageLiteral(resourceName: "Notifications")
-            //if let imageData = image.jpegData(compressionQuality: 0.5) {
-          //      try imageData.write(to: fileURL)
-              //  print("true")//
-            //}
-        } catch {
-            print(error)
-        }
-    }
 
+        let file = name
+        let filename = getDocumentsDirectory().appendingPathComponent(name)
+
+        do {
+            try file.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+
+        }
+
+    }
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
 }
 
 

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Fyt-h4-pX6">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Fyt-h4-pX6" userLabel="MainStack">
                                 <rect key="frame" x="0.0" y="64" width="320" height="496"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2o0-hp-3u4">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="0XI-hn-P4x">
-                                                <rect key="frame" x="6" y="136" width="242.5" height="31"/>
+                                                <rect key="frame" x="79.5" y="136" width="169.5" height="31"/>
                                                 <connections>
                                                     <action selector="volumeChangeTrackOne:" destination="BYZ-38-t0r" eventType="valueChanged" id="sax-bl-UGO"/>
                                                 </connections>
@@ -30,7 +32,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="aCn-j4-Lo4">
                                                 <rect key="frame" x="8" y="8" width="304" height="60"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz3-CA-dmt">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz3-CA-dmt">
                                                         <rect key="frame" x="0.0" y="0.0" width="149" height="60"/>
                                                         <state key="normal" title="Restart">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,7 +41,7 @@
                                                             <action selector="restartTrackOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iGR-ms-sbQ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXw-BK-I2L">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXw-BK-I2L">
                                                         <rect key="frame" x="155" y="0.0" width="149" height="60"/>
                                                         <state key="normal" title="Change Track">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,7 +61,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A5-wU-zJc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Duration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A5-wU-zJc">
                                                 <rect key="frame" x="8" y="107.5" width="70" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -72,7 +74,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkQ-ul-fsm">
-                                                <rect key="frame" x="254.5" y="140.5" width="57.5" height="20.5"/>
+                                                <rect key="frame" x="255" y="140.5" width="57" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -80,7 +82,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3pr-cv-npX">
                                                 <rect key="frame" x="8" y="172" width="304" height="60"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtJ-1E-rIx">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtJ-1E-rIx">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
                                                         <state key="normal" title="Play">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,7 +91,7 @@
                                                             <action selector="playTrackOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XDJ-7C-D1f"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHs-o4-r5w">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHs-o4-r5w">
                                                         <rect key="frame" x="102" y="0.0" width="100" height="60"/>
                                                         <state key="normal" title="Pause">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,7 +100,7 @@
                                                             <action selector="pauseTrackOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XQ4-be-JxL"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEr-cZ-tgx">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEr-cZ-tgx">
                                                         <rect key="frame" x="204" y="0.0" width="100" height="60"/>
                                                         <state key="normal" title="Stop">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,16 +114,27 @@
                                                     <constraint firstAttribute="height" constant="60" id="ifd-XR-eIg"/>
                                                 </constraints>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrg-2c-tPz">
+                                                <rect key="frame" x="8" y="136" width="61.5" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="Sgg-o3-QRS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
                                             <constraint firstItem="aCn-j4-Lo4" firstAttribute="top" secondItem="2o0-hp-3u4" secondAttribute="top" constant="8" id="1Du-rc-JiZ"/>
                                             <constraint firstAttribute="trailing" secondItem="Uq1-Aa-4sk" secondAttribute="trailing" constant="8" id="3M0-3l-0Gy"/>
+                                            <constraint firstItem="0XI-hn-P4x" firstAttribute="leading" secondItem="zrg-2c-tPz" secondAttribute="trailing" constant="12" id="5Ec-pm-BhC"/>
+                                            <constraint firstItem="zrg-2c-tPz" firstAttribute="top" secondItem="2A5-wU-zJc" secondAttribute="bottom" constant="8" symbolic="YES" id="5qj-pU-anu"/>
                                             <constraint firstItem="8aW-HU-E2d" firstAttribute="top" secondItem="aCn-j4-Lo4" secondAttribute="bottom" constant="5" id="6sB-cd-Tia"/>
                                             <constraint firstItem="3pr-cv-npX" firstAttribute="top" secondItem="MkQ-ul-fsm" secondAttribute="bottom" constant="11" id="7Fe-ah-qLl"/>
                                             <constraint firstItem="aCn-j4-Lo4" firstAttribute="leading" secondItem="2o0-hp-3u4" secondAttribute="leading" constant="8" id="Ajs-1C-pqJ"/>
                                             <constraint firstAttribute="trailing" secondItem="MkQ-ul-fsm" secondAttribute="trailing" constant="8" id="BGB-vF-Qvx"/>
-                                            <constraint firstItem="0XI-hn-P4x" firstAttribute="leading" secondItem="2o0-hp-3u4" secondAttribute="leading" constant="8" id="ClG-PR-n5U"/>
+                                            <constraint firstItem="zrg-2c-tPz" firstAttribute="leading" secondItem="2o0-hp-3u4" secondAttribute="leading" constant="8" id="EWR-k5-uu6"/>
                                             <constraint firstItem="2A5-wU-zJc" firstAttribute="leading" secondItem="2o0-hp-3u4" secondAttribute="leading" constant="8" id="MoN-4m-aVE"/>
                                             <constraint firstItem="MkQ-ul-fsm" firstAttribute="leading" secondItem="0XI-hn-P4x" secondAttribute="trailing" constant="8" id="TSD-0p-3Oy"/>
                                             <constraint firstItem="8aW-HU-E2d" firstAttribute="leading" secondItem="2o0-hp-3u4" secondAttribute="leading" constant="8" id="ZJp-Zp-c7K"/>
@@ -142,7 +155,7 @@
                                         <rect key="frame" x="0.0" y="256" width="320" height="240"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="Web-p7-mGx">
-                                                <rect key="frame" x="6" y="134" width="242.5" height="31"/>
+                                                <rect key="frame" x="79.5" y="134" width="169.5" height="31"/>
                                                 <connections>
                                                     <action selector="volumeChangeTrackTwo:" destination="BYZ-38-t0r" eventType="valueChanged" id="irB-TV-cGk"/>
                                                 </connections>
@@ -150,20 +163,23 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Gch-Sv-fK9">
                                                 <rect key="frame" x="8" y="0.0" width="304" height="60"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amn-CT-ZD9">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wb1-c7-hjs">
                                                         <rect key="frame" x="0.0" y="0.0" width="149" height="60"/>
+                                                        <state key="normal" title="Change Track">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="changeTrackTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DXF-J3-cjG"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amn-CT-ZD9">
+                                                        <rect key="frame" x="155" y="0.0" width="149" height="60"/>
                                                         <state key="normal" title="Restart">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="restartTrackTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F3B-NR-G22"/>
                                                         </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wb1-c7-hjs">
-                                                        <rect key="frame" x="155" y="0.0" width="149" height="60"/>
-                                                        <state key="normal" title="Change Track">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -192,7 +208,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGU-VC-KYg">
-                                                <rect key="frame" x="254.5" y="135.5" width="57.5" height="25.5"/>
+                                                <rect key="frame" x="255" y="135.5" width="57" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -200,7 +216,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="db8-8O-ZXe">
                                                 <rect key="frame" x="8" y="172" width="304" height="60"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM5-Yu-TsX">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM5-Yu-TsX">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
                                                         <state key="normal" title="Play">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -209,7 +225,7 @@
                                                             <action selector="playTrackTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="opy-AW-ZNM"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxj-5R-wBk">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxj-5R-wBk">
                                                         <rect key="frame" x="102" y="0.0" width="100" height="60"/>
                                                         <state key="normal" title="Pause">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,7 +234,7 @@
                                                             <action selector="pauseTrackTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NWc-Ch-7pg"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8c-RK-cVu">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8c-RK-cVu">
                                                         <rect key="frame" x="204" y="0.0" width="100" height="60"/>
                                                         <state key="normal" title="Stop">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -232,6 +248,15 @@
                                                     <constraint firstAttribute="height" constant="60" id="FUl-Zr-nTQ"/>
                                                 </constraints>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wG-vm-IN0">
+                                                <rect key="frame" x="8" y="136" width="61.5" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="hUN-er-xzC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -242,9 +267,10 @@
                                             <constraint firstAttribute="trailing" secondItem="Gch-Sv-fK9" secondAttribute="trailing" constant="8" id="9SP-du-o5h"/>
                                             <constraint firstItem="2t4-wK-osu" firstAttribute="top" secondItem="Gch-Sv-fK9" secondAttribute="bottom" constant="8" id="9uZ-r5-gnK"/>
                                             <constraint firstItem="UYV-7Z-QZu" firstAttribute="leading" secondItem="6GK-d1-LJi" secondAttribute="leading" constant="8" id="AO7-wJ-n8D"/>
+                                            <constraint firstItem="2wG-vm-IN0" firstAttribute="leading" secondItem="6GK-d1-LJi" secondAttribute="leading" constant="8" id="Eaz-4k-Bv4"/>
                                             <constraint firstItem="GGU-VC-KYg" firstAttribute="leading" secondItem="Web-p7-mGx" secondAttribute="trailing" constant="8" id="HsI-wY-0j3"/>
                                             <constraint firstAttribute="bottom" secondItem="db8-8O-ZXe" secondAttribute="bottom" constant="8" id="O9P-Ux-ETa"/>
-                                            <constraint firstItem="Web-p7-mGx" firstAttribute="leading" secondItem="6GK-d1-LJi" secondAttribute="leading" constant="8" id="O9v-2s-O3n"/>
+                                            <constraint firstItem="2wG-vm-IN0" firstAttribute="top" secondItem="UYV-7Z-QZu" secondAttribute="bottom" constant="12" id="W25-y2-V3b"/>
                                             <constraint firstItem="UHH-4N-95m" firstAttribute="leading" secondItem="UYV-7Z-QZu" secondAttribute="trailing" constant="8" id="W9U-pE-UyS"/>
                                             <constraint firstItem="Gch-Sv-fK9" firstAttribute="top" secondItem="6GK-d1-LJi" secondAttribute="top" id="WfE-Gy-ofm"/>
                                             <constraint firstAttribute="trailing" secondItem="UHH-4N-95m" secondAttribute="trailing" constant="15" id="ZtM-Zz-bdX"/>
@@ -253,6 +279,7 @@
                                             <constraint firstItem="GGU-VC-KYg" firstAttribute="top" secondItem="UHH-4N-95m" secondAttribute="bottom" constant="11.5" id="mem-ZI-Zi6"/>
                                             <constraint firstItem="Gch-Sv-fK9" firstAttribute="leading" secondItem="6GK-d1-LJi" secondAttribute="leading" constant="8" id="p3h-DT-kCB"/>
                                             <constraint firstAttribute="trailing" secondItem="db8-8O-ZXe" secondAttribute="trailing" constant="8" id="qDK-cg-Doj"/>
+                                            <constraint firstItem="Web-p7-mGx" firstAttribute="leading" secondItem="2wG-vm-IN0" secondAttribute="trailing" constant="12" id="rf3-L1-w3z"/>
                                             <constraint firstItem="Web-p7-mGx" firstAttribute="top" secondItem="UHH-4N-95m" secondAttribute="bottom" constant="10" id="sHH-N0-tpV"/>
                                             <constraint firstItem="2t4-wK-osu" firstAttribute="leading" secondItem="6GK-d1-LJi" secondAttribute="leading" constant="8" id="suA-Vr-sFp"/>
                                             <constraint firstItem="db8-8O-ZXe" firstAttribute="top" secondItem="GGU-VC-KYg" secondAttribute="bottom" constant="11" id="w8c-PR-J0o"/>
@@ -260,29 +287,134 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="pvY-th-UUt" userLabel="NoTrackStack">
+                                <rect key="frame" x="0.0" y="64" width="320" height="484"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBw-wq-RBD">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="241.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnf-yj-6dh">
+                                                <rect key="frame" x="58" y="169" width="205" height="63"/>
+                                                <color key="backgroundColor" red="0.47271186110000002" green="0.69439637659999998" blue="0.72908145189999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="205" id="B8u-De-L7K"/>
+                                                    <constraint firstAttribute="height" constant="63" id="qeU-5U-qKB"/>
+                                                </constraints>
+                                                <state key="normal" title="Add Track One">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addTrackOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="29i-zh-uCJ"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-aZ-EAc">
+                                                <rect key="frame" x="8" y="34" width="304" height="127"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="127" id="dWF-Bu-oZV"/>
+                                                </constraints>
+                                                <string key="text">In order to use this application, you will need to have songs saved onto your iPhone via the Files app. Connect your phone to your computer to add songs or download them. </string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track One Set. Waiting for track two to be set" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNq-jd-I1Q">
+                                                <rect key="frame" x="56" y="78" width="208" height="76"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Bnf-yj-6dh" firstAttribute="leading" secondItem="bBw-wq-RBD" secondAttribute="leading" constant="58" id="MBp-cU-DIO"/>
+                                            <constraint firstItem="y7H-aZ-EAc" firstAttribute="top" secondItem="bBw-wq-RBD" secondAttribute="top" constant="34" id="apg-iv-IIL"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bnf-yj-6dh" secondAttribute="bottom" constant="9.5" id="ccQ-YX-T1n"/>
+                                            <constraint firstItem="y7H-aZ-EAc" firstAttribute="leading" secondItem="bBw-wq-RBD" secondAttribute="leading" constant="8" id="hQc-Nv-aql"/>
+                                            <constraint firstAttribute="trailing" secondItem="y7H-aZ-EAc" secondAttribute="trailing" constant="8" id="pQG-qB-SlZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bnf-yj-6dh" secondAttribute="trailing" constant="57" id="rxM-6r-V3S"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="ZNq-jd-I1Q"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moc-l6-v3U">
+                                        <rect key="frame" x="0.0" y="251" width="320" height="233"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQh-yz-YNJ">
+                                                <rect key="frame" x="58" y="9" width="205" height="63"/>
+                                                <color key="backgroundColor" red="0.47271186110000002" green="0.69439637659999998" blue="0.72908145189999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="205" id="frG-BB-JKS"/>
+                                                    <constraint firstAttribute="height" constant="63" id="psf-8N-qL0"/>
+                                                </constraints>
+                                                <state key="normal" title="Add Track Two">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addTrackTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="By6-oo-K0j"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="uQh-yz-YNJ" secondAttribute="trailing" constant="57" id="1XW-Yc-OOg"/>
+                                            <constraint firstItem="uQh-yz-YNJ" firstAttribute="top" secondItem="moc-l6-v3U" secondAttribute="top" constant="9" id="850-aI-7mi"/>
+                                            <constraint firstAttribute="height" constant="233" id="Fu8-7H-8pD"/>
+                                            <constraint firstItem="uQh-yz-YNJ" firstAttribute="leading" secondItem="moc-l6-v3U" secondAttribute="leading" constant="58" id="luX-C8-iPL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="bBw-wq-RBD" firstAttribute="top" secondItem="pvY-th-UUt" secondAttribute="top" id="0r2-SW-Mbk"/>
+                                    <constraint firstItem="moc-l6-v3U" firstAttribute="top" secondItem="bBw-wq-RBD" secondAttribute="bottom" constant="9.5" id="0zg-9B-p1P"/>
+                                    <constraint firstItem="moc-l6-v3U" firstAttribute="leading" secondItem="pvY-th-UUt" secondAttribute="leading" id="Crr-T8-hlJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="moc-l6-v3U" secondAttribute="bottom" id="ShW-qR-naH"/>
+                                    <constraint firstAttribute="trailing" secondItem="moc-l6-v3U" secondAttribute="trailing" id="X8m-Yp-L7k"/>
+                                    <constraint firstAttribute="height" constant="484" id="u1F-fV-a5m"/>
+                                    <constraint firstItem="bBw-wq-RBD" firstAttribute="leading" secondItem="pvY-th-UUt" secondAttribute="leading" id="uEl-10-Cps"/>
+                                    <constraint firstAttribute="trailing" secondItem="bBw-wq-RBD" secondAttribute="trailing" id="xHj-d9-AHW"/>
+                                </constraints>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mixer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75R-ze-aVl">
                                 <rect key="frame" x="34" y="20" width="252" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Fyt-h4-pX6" firstAttribute="top" secondItem="75R-ze-aVl" secondAttribute="bottom" constant="8" id="4cE-VN-rXt"/>
+                            <constraint firstAttribute="bottom" secondItem="pvY-th-UUt" secondAttribute="bottom" constant="20" id="Iud-Y5-5v4"/>
                             <constraint firstItem="Fyt-h4-pX6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Q29-VU-uSR"/>
+                            <constraint firstItem="pvY-th-UUt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="Q3c-kk-aYF"/>
                             <constraint firstItem="75R-ze-aVl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="hhX-qP-5c2"/>
+                            <constraint firstItem="pvY-th-UUt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jEk-Eh-7qP"/>
                             <constraint firstItem="Fyt-h4-pX6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nnP-i2-IZs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fyt-h4-pX6" secondAttribute="bottom" constant="8" id="rME-fY-w8j"/>
                             <constraint firstItem="75R-ze-aVl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="tAz-EX-Blv"/>
+                            <constraint firstItem="pvY-th-UUt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vUy-Lp-VTA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="75R-ze-aVl" secondAttribute="trailing" constant="34" id="zKI-Mr-P26"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addTrackOne_noTrack" destination="Bnf-yj-6dh" id="9rj-NR-a37"/>
+                        <outlet property="addTrackTwo_noTrack" destination="uQh-yz-YNJ" id="mLg-AF-nsA"/>
+                        <outlet property="durationLabel" destination="2A5-wU-zJc" id="YYL-ZO-HoS"/>
+                        <outlet property="durationLabel_two" destination="UYV-7Z-QZu" id="P7c-SS-Rhp"/>
+                        <outlet property="mainStack" destination="Fyt-h4-pX6" id="Kfb-Df-dNa"/>
+                        <outlet property="noTrackOneView" destination="bBw-wq-RBD" id="eGC-0y-zIk"/>
+                        <outlet property="noTrackTwoView" destination="moc-l6-v3U" id="B26-AD-sCD"/>
+                        <outlet property="noTracksStack" destination="pvY-th-UUt" id="lwb-dM-qkv"/>
                         <outlet property="titleOfApp" destination="75R-ze-aVl" id="XTW-2z-rpH"/>
                         <outlet property="trackOneChangeTrackBtn" destination="DXw-BK-I2L" id="qZ8-e4-x2L"/>
                         <outlet property="trackOneDurationLabel" destination="Uq1-Aa-4sk" id="QKX-gw-LIx"/>
+                        <outlet property="trackOneDurationTIme" destination="Uq1-Aa-4sk" id="WII-Ky-bmZ"/>
                         <outlet property="trackOnePauseBtn" destination="eHs-o4-r5w" id="qBh-sL-qLC"/>
                         <outlet property="trackOnePlayBtn" destination="WtJ-1E-rIx" id="8kx-Qc-PSv"/>
                         <outlet property="trackOneRestartTrackBtn" destination="Iz3-CA-dmt" id="bHS-5w-bhP"/>
@@ -291,8 +423,10 @@
                         <outlet property="trackOneView" destination="2o0-hp-3u4" id="ro4-9l-LWL"/>
                         <outlet property="trackOneVolume" destination="MkQ-ul-fsm" id="gdu-VM-gLP"/>
                         <outlet property="trackOneVolumeControl" destination="0XI-hn-P4x" id="31d-Zw-pEg"/>
+                        <outlet property="trackOneVolumeLabel" destination="zrg-2c-tPz" id="SC9-gE-ENc"/>
                         <outlet property="trackTwoChangeTrackBtn" destination="wb1-c7-hjs" id="YKQ-gd-A0Y"/>
                         <outlet property="trackTwoDurationLabel" destination="UHH-4N-95m" id="Hg4-qb-2RK"/>
+                        <outlet property="trackTwoDurationTime" destination="UHH-4N-95m" id="JwM-WB-TWJ"/>
                         <outlet property="trackTwoPauseBtn" destination="Cxj-5R-wBk" id="Bpl-Q1-0QA"/>
                         <outlet property="trackTwoPlayBtn" destination="zM5-Yu-TsX" id="txY-tr-LiP"/>
                         <outlet property="trackTwoRestartBtn" destination="amn-CT-ZD9" id="3FS-aG-P8e"/>
@@ -308,4 +442,12 @@
             <point key="canvasLocation" x="-575.625" y="22.183098591549296"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
