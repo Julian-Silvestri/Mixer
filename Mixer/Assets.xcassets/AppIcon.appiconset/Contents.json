@@ -1,109 +1,111 @@
 {
   "images" : [
     {
-      "filename" : "mixerLiteIcon-20@2x.png",
+      "filename" : "mixerBG-20@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "mixerLiteIcon-20@3x.png",
+      "filename" : "mixerBG-20@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "mixerLiteIcon-29@2x.png",
+      "filename" : "mixerBG-29.png",
+      "idiom" : "iphone",
+      "scale" : "1x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "mixerBG-29@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "mixerLiteIcon-29@3x.png",
+      "filename" : "mixerBG-29@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "mixerLiteIcon-40@2x.png",
+      "filename" : "mixerBG-40@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "mixerLiteIcon-40@3x.png",
+      "filename" : "mixerBG-40@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "mixerLiteIcon-60@2x.png",
+      "filename" : "mixerBG-60@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "mixerLiteIcon-60@3x.png",
+      "filename" : "mixerBG-60@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "mixerLiteIcon-20.png",
+      "filename" : "mixerBG-20.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "mixerLiteIcon-20@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "mixerLiteIcon-29.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "mixerLiteIcon-29@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "mixerLiteIcon-40.png",
+      "filename" : "mixerBG-40.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "mixerLiteIcon-40@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "mixerLiteIcon-76.png",
+      "filename" : "mixerBG-76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "mixerLiteIcon-76@2x.png",
+      "filename" : "mixerBG-76@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "mixerLiteIcon-83.5@2x.png",
+      "filename" : "mixerBG-83.5@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "mixerLiteIcon-1024.png",
+      "filename" : "mixerBG-1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

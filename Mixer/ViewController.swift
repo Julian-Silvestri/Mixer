@@ -60,7 +60,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
+        
+        self.mainStack.isHidden = true
         
         self.trackOneView.layer.cornerRadius = 10
         self.trackTwoView.layer.cornerRadius = 10
@@ -498,11 +500,14 @@ class ViewController: UIViewController {
     
     
     func showMainMixer(){
+        
         if self.trackTwoSet == true && self.trackOneSet == true {
+            
             UIView.animate(withDuration: 0.5, animations: {
                 self.noTracksStack.alpha = 0
             }, completion: { _ in
                 self.noTracksStack.isHidden = true
+                self.mainStack.isHidden = false
             })
         } else {
             return
@@ -515,7 +520,7 @@ extension ViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         
         if changingTrackOne == true {
-            let selectedFileURL = URL(fileURLWithPath: "\(urls[0].absoluteString)")
+            let selectedFileURL = URL(fileURLWithPath: "\(urls[0].path)")
             print("\(selectedFileURL)")
             
             let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -523,7 +528,7 @@ extension ViewController: UIDocumentPickerDelegate {
             
             if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
                 self.trackOneTitle.text = "\(sandboxFileURL.lastPathComponent)"
-                self.audioPlayerOne?.trackOne = "\(sandboxFileURL.absoluteURL)"
+                self.audioPlayerOne?.trackOne = "\(sandboxFileURL.path)"
                 self.audioPlayerOne?.changeTrack(track: "\(sandboxFileURL)")
                 print("Already exists! Do nothing")
                 if self.audioPlayerOne?.trackOne == "" {
@@ -540,15 +545,9 @@ extension ViewController: UIDocumentPickerDelegate {
                     })
                 }
             } else {
-                do {
-                    try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
-                    
-                    print("Copied file!")
-                }
-                catch {
-                    print("Error: \(error)")
-                }
-                
+
+                print("Error: 1")
+
             }
         } else {
             //changing track two
@@ -560,7 +559,7 @@ extension ViewController: UIDocumentPickerDelegate {
             
             if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
                 self.trackTwoTitle.text = "\(sandboxFileURL.lastPathComponent)"
-                self.audioPlayerTwo?.trackTwo = "\(sandboxFileURL.absoluteURL)"
+                self.audioPlayerTwo?.trackTwo = "\(sandboxFileURL.path)"
                 self.audioPlayerTwo?.changeTrack(track: "\(sandboxFileURL)")
                 print("Already exists! Do nothing")
                 
@@ -580,15 +579,9 @@ extension ViewController: UIDocumentPickerDelegate {
                     })
                 }
             } else {
-            
-                do {
-                    try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
-                    
-                    print("Copied file!")
-                }
-                catch {
-                    print("Error: \(error)")
-                }
+
+                print("Error: 2")
+
                 
             }
         }
@@ -596,22 +589,22 @@ extension ViewController: UIDocumentPickerDelegate {
 
     }
     
-    func saveFile(name: String) {
-
-        let file = name
-        let filename = getDocumentsDirectory().appendingPathComponent(name)
-
-        do {
-            try file.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-        } catch {
-
-        }
-
-    }
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
+//    func saveFile(name: String) {
+//
+//        let file = name
+//        let filename = getDocumentsDirectory().appendingPathComponent(name)
+//
+//        do {
+//            try file.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+//        } catch {
+//
+//        }
+//
+//    }
+//    func getDocumentsDirectory() -> URL {
+//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        return paths[0]
+//    }
 }
 
 
