@@ -551,7 +551,7 @@ extension ViewController: UIDocumentPickerDelegate {
             }
         } else {
             //changing track two
-            let selectedFileURL = URL(fileURLWithPath: "\(urls[0].absoluteString)")
+            let selectedFileURL = URL(fileURLWithPath: "\(urls[0].path)")
             print("\(selectedFileURL)")
             
             let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
